@@ -5,8 +5,8 @@ import QuantityButton from './quantity-button'
 
 export default function ProductInfo({ product, className }) {
     return (
-        <div className={`w-1/2 ${className}`}>
-            <div className="aspect-square flex flex-col gap-12">
+        <div className="w-1/2 relative">
+            <div className={`flex flex-col aspect-square gap-12 ${className}`}>
                 <h1 className="text-3xl font-bold">{product.name}</h1>
 
                 <div className="flex flex-col gap-8 ">

@@ -13,10 +13,10 @@ export default function Aproduct({products}) {
                     className="aspect-square bg-gray-400 flex flex-col justify-end items-center p-4 cursor-pointer" 
                     onClick={() => router.push(`/product-detail/${item.id}`)}>
                     <div className="flex justify-center gap-28">
-                        <p className="text-2xl font-bold">{item.name}</p>
+                        <p className="text-[1.5vw] font-bold">{item.name}</p>
                         <div className="flex gap-4">
                             <div className="bg-gray-200 p-2 rounded-sm">
-                                <p className="font-bold">SHOP</p>
+                                <p className="font-bold text-[1vw]">SHOP</p>
                             </div>
                             <div className="bg-gray-200 p-2 rounded-sm">
                                 <ShoppingBag />

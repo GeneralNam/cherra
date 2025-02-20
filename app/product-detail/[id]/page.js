@@ -48,7 +48,11 @@ export default async function ProductDetail({params}) {
                     </div>
                     <div className="flex flex-col gap-1">
                         <h2 className="text-lg font-bold">Quantity</h2>
-                        <p className="text-gray-500">1</p>
+                        <div>
+                            <button>&lt;</button>
+                            <p></p>
+                            <button>&gt;</button>
+                        </div>
 
                     </div>
                 </div>

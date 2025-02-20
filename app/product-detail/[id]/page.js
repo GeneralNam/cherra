@@ -27,7 +27,7 @@ export default async function ProductDetail({ params }) {
     return (
         <div className="flex px-[clamp(2rem,7vw,13rem)] py-[clamp(4rem,15vh,8rem)] gap-[clamp(1rem,2vw,2.5rem)] w-full max-w-[90rem] mx-auto">
             <Pics />
-            <ProductInfo product={product} />
+            <ProductInfo product={product} className="sticky top-0" />
         </div>
     )
 }

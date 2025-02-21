@@ -25,9 +25,9 @@ export default async function ProductDetail({ params }) {
     if (!product) return <div>상품을 찾을 수 없습니다.</div>
 
     return (
-        <div className="flex px-[clamp(2rem,7vw,13rem)] py-[clamp(4rem,15vh,8rem)] gap-[clamp(1rem,2vw,2.5rem)] w-full max-w-[90rem] mx-auto">
+        <div className="flex px-[clamp(2rem,10vw,13rem)] py-[clamp(4rem,14vh,10rem)] gap-[clamp(1rem,8vw,10rem)] w-full max-w-[90rem] mx-auto">
             <Pics />
-            <ProductInfo product={product} className="sticky top-[clamp(4rem,15vh,8rem)]" />
+            <ProductInfo product={product} />
         </div>
     )
 }

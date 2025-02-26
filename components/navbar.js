@@ -13,6 +13,7 @@ export default function Navbar() {
         <Link href="/product" className="text-sm">PRODUCT</Link>
         <Link href="/cart" className="text-sm">CART</Link>
         <Link href="/login" className="text-sm">LOGIN</Link>
+        <Link href="/private" className="text-sm">PRIVATE</Link>
       </div>
     </nav>
   )

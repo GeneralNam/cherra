@@ -12,7 +12,7 @@ export default function Navbar() {
       <div className="flex items-center ml-auto gap-4">
         <Link href="/product" className="text-sm">PRODUCT</Link>
         <Link href="/cart" className="text-sm">CART</Link>
-        <Link href="/login" className="text-sm">LOGIN</Link>
+        <Link href="/login/signin" className="text-sm">LOGIN</Link>
         <Link href="/private" className="text-sm">PRIVATE</Link>
       </div>
     </nav>

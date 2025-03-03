@@ -1,7 +1,26 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import useAuthStore from '@/store/authStore'
+import { useRouter } from 'next/navigation'
 
 export default function Navbar() {
+
+  const { isLoggedIn, logout } = useAuthStore()
+  const router = useRouter()
+  // 로그아웃 핸들러
+  const handleLogout = async () => {
+    const result = await logout();
+
+    if (result.success) {
+      router.push('/')
+      console.log('로그아웃 성공');
+    }
+  };
+
+
+
   return (
     <nav className="relative flex items-center bg-black text-white h-16 px-10">
       <div className="absolute left-1/2 transform -translate-x-1/2">
@@ -12,8 +31,26 @@ export default function Navbar() {
       <div className="flex items-center ml-auto gap-4">
         <Link href="/product" className="text-sm">PRODUCT</Link>
         <Link href="/cart" className="text-sm">CART</Link>
-        <Link href="/login/signin" className="text-sm">LOGIN</Link>
-        <Link href="/private" className="text-sm">PRIVATE</Link>
+
+        {isLoggedIn ? (
+          <>
+            <Link href="/private" className="text-sm">
+              PRIVATE
+            </Link>
+            <button
+              onClick={handleLogout}
+              className="text-sm"
+            >
+              LOGOUT
+            </button>
+          </>
+        ) : (
+          <Link href="/login/signin" className="text-sm">
+            LOGIN
+          </Link>
+        )}
+
+
       </div>
     </nav>
   )

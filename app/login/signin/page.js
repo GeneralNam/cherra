@@ -4,6 +4,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { signInWithEmail } from '../actions';
+import useAuthStore from '@/store/authStore';
 
 export default function SigninPage() {
     const [email, setEmail] = useState('');
@@ -13,10 +15,19 @@ export default function SigninPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // 여기에 로그인 로직 구현
-        // 예: await signIn(email, password);
-        console.log('로그인 시도:', { email, password, rememberMe });
-        // 성공 시 리디렉션
+
+        try {
+            const { data } = await signInWithEmail({ email, password });
+            console.log('로그인 성공:');
+            useAuthStore.setState({
+                user: data.user,
+                isLoggedIn: true
+            });
+            // 로그인 성공 후 홈페이지로 리다이렉트
+            router.push('/'); // 원하는 경로로 변경 가능
+        } catch (err) {
+            console.error('로그인 실패:', err.message);
+        }
         // router.push('/dashboard');
     };
 
@@ -66,8 +77,8 @@ export default function SigninPage() {
                             로그인 정보 저장
                         </label>
                     </div>
-                    <Link href="/forgot-password" className="text-sm text-gray-700 hover:underline">
-                        비밀번호 찾기
+                    <Link href="/login/resetpassword" className="text-sm text-gray-700 hover:underline">
+                        비밀번호 초기화
                     </Link>
                 </div>
 
